@@ -1,4 +1,4 @@
-button.rounded-5 {
+#member button.rounded-5 {
     width: 100px;
     height: 35px;
     color: white;
@@ -6,45 +6,45 @@ button.rounded-5 {
     border: none;
 }
 
-.custom-section {
+#member .custom-section {
     background-color: var(--main-darkblue);
     border-radius: 35px;
     padding: 10px;
 }
 
-main .nav-link {
+#member .nav-link {
     color: white;
 }
 
-main .nav-pills .nav-link.active {
+#member .nav-pills .nav-link.active {
     color: var(--main-darkblue);
     background-color: var(--main-yellow);
     border-color: var(--bs-nav-tabs-link-active-border-color);
 }
 
-li.nav-item {
+#member li.nav-item {
     margin: 0 10px;
 }
 
-main .nav-link:hover,
-main .nav-link:focus {
+#member .nav-link:hover,
+#member .nav-link:focus {
     color: var(--main-yellow)
 }
 
-.profile-container {
+#member .profile-container {
     max-width: 600px;
     margin: auto;
     padding: 20px;
 }
 
-.btn-icon {
+#member .btn-icon {
     color: white;
     background-color: var(--main-darkblue);
     border: 5px solid var(--main-darkblue);
     border-radius: 35px;
 }
 
-.btn-icon:hover {
+#member .btn-icon:hover {
     color: var(--main-yellow);
 }
 
@@ -61,40 +61,40 @@ main .nav-link:focus {
     border: 3px solid rgba(54, 91, 96, 0.5);
 }
 
-.edit-button button {
+#member .edit-button button {
     color: white;
     background-color: var(--main-darkblue);
 }
 
-.edit-button button:hover {
+#member .edit-button button:hover {
     color: var(--main-yellow);
     background-color: var(--main-darkblue);
 }
 
-.small-info {
+#member .small-info {
     font-size: 12px;
     color: #6C757D;
     margin-left: 5px;
 }
 
 /* -------------------------------------------------- */
-.datepicker-toggle {
+#member .datepicker-toggle {
     display: inline-block;
     position: relative;
     width: 25px;
     height: 25px;
 }
 
-.datepicker-toggle-button {
+#member .datepicker-toggle-button {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: url('./img/calendar.svg');
+    background-image: url('http://localhost/gachoraLRB/public/images/calendar.svg');
 }
 
-.datepicker-input {
+#member .datepicker-input {
     width: 100%;
     height: 100%;
     opacity: 0;
@@ -102,7 +102,7 @@ main .nav-link:focus {
     box-sizing: border-box;
 }
 
-.datepicker-input::-webkit-calendar-picker-indicator {
+#member .datepicker-input::-webkit-calendar-picker-indicator {
     position: absolute;
     left: 0;
     top: 0;
@@ -113,7 +113,7 @@ main .nav-link:focus {
     cursor: pointer;
 }
 
-.date-input {
+#member .date-input {
     width: 150px;
     color: #6C757D;
     border: 1px solid gainsboro;
@@ -122,11 +122,11 @@ main .nav-link:focus {
 
 /* -------------------------------------------------- */
 
-td {
+#member td {
     padding: 15px 1px;
 }
 
-li.nav-item {
+#member li.nav-item {
     margin: 0;
 }
 
@@ -138,7 +138,7 @@ li.nav-item {
     border: 2px solid var(--main-darkblue);
 }
 
-.favor-section {
+#member .favor-section {
     background-color: gainsboro;
     border-radius: 5px;
 }
@@ -160,25 +160,25 @@ li.nav-item {
     height: 30px;
 }
 
-.inventory-container {
+#member .inventory-container {
     background-color: var(--main-darkblue);
     border-radius: 10px;
     padding: 20px;
     color: white;
 }
 
-.inventory-container table {
+#member .inventory-container table {
     color: white
 }
 
-.inventory-container table img {
+#member .inventory-container table img {
     width: 60px;
     height: 60px;
     background-color: #ddd;
     border-radius: 5px;
 }
 
-.btn-circle {
+#member .btn-circle {
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -187,32 +187,32 @@ li.nav-item {
     align-items: center;
 }
 
-.btn-exchange {
+#member .btn-exchange {
     background-color: #ffc107;
     color: black;
     border: none;
 }
 
-.btn-exchange:hover {
+#member .btn-exchange:hover {
     background-color: #e0a800;
 }
 
-.btn-deli,
-.btn-deli:hover {
+#member .btn-deli,
+#member .btn-deli:hover {
     color: white;
     border-color: white;
 }
 
-.btn-deli:hover {
+#member .btn-deli:hover {
     background-color: gainsboro;
     color: var(--main-darkblue);
 }
 
-tr {
+#member tr {
     border-bottom: 1px solid white;
 }
 
-th button {
+#member th button {
     width: 20px;
     height: 20px;
     border: none;
@@ -225,7 +225,7 @@ th button {
     color: var(--main-darkblue)
 }
 
-th button:hover {
+#member th button:hover {
     background-color: var(--main-yellow);
     color: white;
 }

@@ -7,7 +7,7 @@
 #register h1 {
     margin-top: 5vw;
     margin-left: 15%;
-    color:#365B6D;
+    color:var(--main-darkblue);
     font-weight:bold;
 }
 
@@ -30,12 +30,17 @@
     margin-left: 32%;
     margin-top: 15px;
     border-radius: 35px;
-    background-color: #FEC265;
+    background-color: var(--main-darkblue);
     width: 125px;
     height: 50px;
     font-size: 20px;
     font-weight:bold;
-    color: #365B6D;
+    color: var(--main-yellow);
+}
+
+#register button:hover {
+    background-color: var(--main-yellow);
+    color: var(--main-darkblue);
 }
 
 #register a{
@@ -135,8 +140,12 @@
 
     text-align: center;
     color: #365B6D;
+    text-decoration: none;
 }
-
+#register .xe:hover {
+    background: var(--main-yellow);
+    color: var(--main-darkblue);
+}
 @media(max-width: 1500px) {
     #register .xx{display: none;
     }

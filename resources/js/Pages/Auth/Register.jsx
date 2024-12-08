@@ -129,24 +129,22 @@ export default function Register() {
                                     &nbsp;
                                     <span>我已詳細閱讀並同意<a href="#">會員條款</a></span>
                                 </div>
-                                <div className="back"><a href="#">回登入頁面</a></div>
                             </label>
                         </div>
+                        <button>確認</button>
                     </div>
-
-                    <button>確認</button>
                 </form>
+                <Link href={route('login')} className="back">
+                    前往登入頁面
+                </Link>
                 <div className="xx">
                     <div className="xa"></div>
                     <div className="xb"></div>
                     <div className="xc"></div>
                     <div className="xd">我已經有會員了?</div>
-                    <div className="xe">
-                        <Link
-                            href={route('login')}
-                            style={{textDecoration:"none"}}
-                        >
-                            回登入頁面
+                    <div>
+                        <Link href={route('login')} className="xe">
+                            前往登入頁面
                         </Link>
                     </div>
                 </div>

@@ -1,12 +1,12 @@
 import { Link } from '@inertiajs/react';
-export default function Navbar({ logo, bgcolor, navbgcolor, textColor, svgColor }) {
+export default function Navbar({ logo, bgcolor, navbgcolor, textColor, svgColor, logout = "none" }) {
     return (
         <nav className="navbar fixed-top navbar-expand-lg overflow-hidden" style={{ backgroundColor: bgcolor, height: "80px" }}>
             <div className="container-fluid pe-0 ps-0 container-xxl">
                 <div className="ps-4">
-                    <a className="navbar-brand" href="#">
-                        <img src={logo} alt="Bootstrap" width="200px" />
-                    </a>
+                    <Link href={route('home')} className="navbar-brand">
+                        <img src={logo} alt="logo" width="200px" />
+                    </Link>
                 </div>
                 <div className="w-100 position-absolute" style={{ backgroundColor: navbgcolor, height: "80px", borderRadius: "40px 0 0 40px", marginLeft: "280px" }}></div>
                 <div id="bigNavbar-l" className="position-absolute" style={{ marginLeft: "300px", color: textColor }}>
@@ -31,6 +31,11 @@ export default function Navbar({ logo, bgcolor, navbgcolor, textColor, svgColor 
                         <li className="nav-item"><a className="dropdown-item" href="#"><img src="http://localhost/gachoraLRB/public/images/wallet.svg" style={{ filter: svgColor }} /></a></li>
                         <li className="nav-item"><a className="dropdown-item" href="#"><img src="http://localhost/gachoraLRB/public/images/cart.svg" style={{ filter: svgColor }} /></a></li>
                         <li className="nav-item"><a className="dropdown-item" href="#"><img src="http://localhost/gachoraLRB/public/images/lang.svg" style={{ filter: svgColor }} /></a></li>
+                        <li className="nav-item" style={{ display: logout }}>
+                            <Link href={route('logout')} method="post" as="button" className="dropdown-item">
+                            <img src="http://localhost/gachoraLRB/public/images/logout.svg" style={{ filter: svgColor }} title='logout' />
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <button className="navbar-toggler me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"

@@ -38,14 +38,11 @@ export default function Login({ status, canResetPassword }) {
                         <div className="xb"></div> {/*<!--黃 小長方形-->*/}
                         <div className="xc"></div>
                         <div className="xd">還不是會員?</div>
-                        <div className="xe">
-                        <Link
-                            href={route('register')}
-                            style={{textDecoration:"none"}}
-                        >
-                            回註冊頁面
-                        </Link>
-                    </div>
+                        <div>
+                            <Link href={route('register')} className="xe">
+                                前往註冊頁面
+                            </Link>
+                        </div>
                     </div>
 
                     <div className="member">
@@ -65,9 +62,9 @@ export default function Login({ status, canResetPassword }) {
                                             isFocused={true}
                                             onChange={(e) => setData('email', e.target.value)}
                                         />
-                                        <label htmlFor="email" value="Email">電子郵件</label>
+                                        <label htmlFor="email" value="Email">電子郵件*</label>
 
-                                        <InputError message={errors.email} className="mt-2" />
+                                        <InputError message={errors.email} className="mt-2 errorMessage" />
                                     </div>
                                     <div className="form-floating mb-3">
                                         <TextInput
@@ -80,9 +77,9 @@ export default function Login({ status, canResetPassword }) {
                                             autoComplete="current-password"
                                             onChange={(e) => setData('password', e.target.value)}
                                         />
-                                        <label htmlFor="password" value="Password">密碼</label>
+                                        <label htmlFor="password" value="Password">密碼*</label>
 
-                                        <InputError message={errors.password} className="mt-2" />
+                                        <InputError message={errors.password} className="mt-2 errorMessage" />
                                     </div>
                                 </div>
                                 <div className='ms-5'>
@@ -108,9 +105,11 @@ export default function Login({ status, canResetPassword }) {
                                             忘記密碼?
                                         </Link>
                                     )}
-                                    <Link>回註冊頁面</Link>
                                     <button className="btn1">確認</button>
                                 </div>
+                                <Link href={route('register')} className="back">
+                                    前往註冊頁面
+                                </Link>
                             </form>
                         </div>
 
@@ -119,7 +118,7 @@ export default function Login({ status, canResetPassword }) {
                             <p className="contact">如果您有任何密碼問題，請連絡客服人員，我們會竭誠為您處理。</p>
 
                             <div className="contact-item">
-                                <img src="./images/mail.svg" />&nbsp;&nbsp;
+                                <img src="./images/mailWithBg.svg" />&nbsp;&nbsp;
                                 <div className="contact-text">
                                     <span>電子郵件gachora.offical@gmail.com</span><br />
                                     <span>我們收到你的問題後，將於工作日由專人以郵件與您聯絡。</span>
@@ -128,7 +127,7 @@ export default function Login({ status, canResetPassword }) {
 
 
                             <div className="contact-item">
-                                <img src="./images/tel.svg" />&nbsp;&nbsp;
+                                <img src="./images/telWithBg.svg" />&nbsp;&nbsp;
                                 <div className="contact-text">
                                     <span>客服專線 04-123-4567</span><br />
                                     <span>服務時間 周一至周五10:00~18:00</span>
