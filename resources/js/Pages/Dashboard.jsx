@@ -580,7 +580,7 @@ export default function Dashboard() {
                                 {/* <!-- 電話號碼 --> */}
                                 <div className="mb-3">
                                     <label className="form-label">電話號碼</label>
-                                    <input type="text" className="form-control-plaintext rounded-pill px-3" defaultValue={user.tel} readOnly />
+                                    <input type="text" className="form-control-plaintext rounded-pill px-3" defaultValue={user.phone} readOnly />
                                 </div>
 
                                 {/* <!-- 生日 --> */}

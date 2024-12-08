@@ -16,7 +16,7 @@ export default function UpdateProfileInformation({
         useForm({
             name: user.name,
             email: user.email,
-            tel: user.tel || "",
+            phone: user.phone || "",
         });
     const submit = (e) => {
         e.preventDefault();
@@ -95,18 +95,18 @@ export default function UpdateProfileInformation({
                 )} */}
 
                 <div className="mb-3">
-                    <InputLabel htmlFor="tel" value="電話號碼" className='form-label' />
+                    <InputLabel htmlFor="phone" value="電話號碼" className='form-label' />
 
                     <TextInput
-                        id="tel"
+                        id="phone"
                         className="form-control-plaintext rounded-pill px-3 editFocus"
-                        value={data.tel}
-                        onChange={(e) => setData('tel', e.target.value)}
+                        value={data.phone}
+                        onChange={(e) => setData('phone', e.target.value)}
                         isFocused
-                        autoComplete="tel"
+                        autoComplete="phone"
                     />
 
-                    <InputError className="mt-2 errorMessage" message={errors.tel} />
+                    <InputError className="mt-2 errorMessage" message={errors.phone} />
                 </div>
                 <div className="mb-3">
                     <InputLabel htmlFor="birth" value="生日" className='form-label' />
