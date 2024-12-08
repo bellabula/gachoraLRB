@@ -1,7 +1,9 @@
-// import '../css/app.css';
+import '../css/app.css';
 import './bootstrap';
 import '../css/style.css';
-import '../css/nav.css';
+import '../css/navbar.css';
+import '../css/login.css';
+import '../css/signUpStyle.css';
 
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';

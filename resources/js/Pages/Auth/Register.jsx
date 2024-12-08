@@ -2,6 +2,7 @@ import InputError from '@/Components/init/InputError';
 import InputLabel from '@/Components/init/InputLabel';
 import PrimaryButton from '@/Components/init/PrimaryButton';
 import TextInput from '@/Components/init/TextInput';
+import Navbar from '@/Components/Navbar';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 
@@ -22,99 +23,134 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <>
+            <Navbar logo='http://localhost/gachoraLRB/public/images/logo2.png' bgcolor="var(--main-bg-gray)" navbgcolor="var(--main-darkblue)" svgColor="var(--white-filter)" textColor="white" />
             <Head title="Register" />
+            <main className="container container-xxl" id='register'>
+                <h1>會員註冊</h1>
+                <form onSubmit={submit}>
+                    <div className="container">
+                        <div className="col-md-6">
+                            <div className="form-floating mb-3">
+                                <TextInput
+                                    id="name"
+                                    name="name"
+                                    value={data.name}
+                                    placeholder="name"
+                                    className="form-control"
+                                    autoComplete="name"
+                                    isFocused={true}
+                                    onChange={(e) => setData('name', e.target.value)}
+                                    required
+                                />
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                                <InputLabel htmlFor="name" value="您的名字*" />
 
-                    <TextInput
-                        id="name"
-                        name="name"
-                        value={data.name}
-                        className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
-                        onChange={(e) => setData('name', e.target.value)}
-                        required
-                    />
+                                <InputError message={errors.name} className="mt-2" />
+                            </div>
+                            <div className="form-floating mb-3">
+                                <TextInput
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    value={data.email}
+                                    placeholder="email"
+                                    className="form-control"
+                                    autoComplete="username"
+                                    onChange={(e) => setData('email', e.target.value)}
+                                    required
+                                />
 
-                    <InputError message={errors.name} className="mt-2" />
+                                <InputLabel htmlFor="email" value="電子郵件*" />
+
+                                <InputError message={errors.email} className="mt-2" />
+                            </div>
+                            <div className="form-floating">
+                                <TextInput
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    value={data.password}
+                                    placeholder="Code"
+                                    className="form-control"
+                                    autoComplete="new-password"
+                                    onChange={(e) => setData('password', e.target.value)}
+                                    required
+                                />
+
+                                <InputLabel htmlFor="password" value="密碼*" />
+
+                                <InputError message={errors.password} className="mt-2" />
+                            </div>
+                            <div className="form-floating">
+                                <TextInput
+                                    id="password_confirmation"
+                                    type="password"
+                                    name="password_confirmation"
+                                    value={data.password_confirmation}
+                                    placeholder="Code"
+                                    className="form-control"
+                                    autoComplete="new-password"
+                                    onChange={(e) =>
+                                        setData('password_confirmation', e.target.value)
+                                    }
+                                    required
+                                />
+
+                                <InputLabel
+                                    htmlFor="password_confirmation"
+                                    value="密碼再次輸入*"
+                                />
+
+                                <InputError
+                                    message={errors.password_confirmation}
+                                    className="mt-2"
+                                />
+                            </div>
+                            <div className="form-floating">
+                                <TextInput
+                                    id="invitationCode"
+                                    name="invitationCode"
+                                    value={data.invitationCode}
+                                    placeholder="Code"
+                                    className="form-control"
+                                    autoComplete="invitationCode"
+                                    isFocused={true}
+                                    onChange={(e) => setData('invitationCode', e.target.value)}
+                                />
+
+                                <InputLabel htmlFor="invitationCode" value="推薦碼" />
+
+                                <InputError message={errors.invitationCode} className="mt-2" />
+                            </div>
+                            <label className="check">
+                                <div>
+                                    <input type="checkbox" name="agree" />
+                                    &nbsp;
+                                    <span>我已詳細閱讀並同意<a href="#">會員條款</a></span>
+                                </div>
+                                <div className="back"><a href="#">回登入頁面</a></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button>確認</button>
+                </form>
+                <div className="xx">
+                    <div className="xa"></div>
+                    <div className="xb"></div>
+                    <div className="xc"></div>
+                    <div className="xd">我已經有會員了?</div>
+                    <div className="xe">
+                        <Link
+                            href={route('login')}
+                            style={{textDecoration:"none"}}
+                        >
+                            回登入頁面
+                        </Link>
+                    </div>
                 </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        onChange={(e) => setData('email', e.target.value)}
-                        required
-                    />
-
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) => setData('password', e.target.value)}
-                        required
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel
-                        htmlFor="password_confirmation"
-                        value="Confirm Password"
-                    />
-
-                    <TextInput
-                        id="password_confirmation"
-                        type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) =>
-                            setData('password_confirmation', e.target.value)
-                        }
-                        required
-                    />
-
-                    <InputError
-                        message={errors.password_confirmation}
-                        className="mt-2"
-                    />
-                </div>
-
-                <div className="mt-4 flex items-center justify-end">
-                    <Link
-                        href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    >
-                        Already registered?
-                    </Link>
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
-                    </PrimaryButton>
-                </div>
-            </form>
-        </GuestLayout>
+            </main>
+        </>
     );
 }
