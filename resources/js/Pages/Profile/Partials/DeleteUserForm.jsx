@@ -49,7 +49,7 @@ export default function DeleteUserForm({ className = '' }) {
         <section className={`space-y-6 ${className}`}>
             <header>
                 <h2 className="text-lg font-medium text-gray-900">
-                    Delete Account
+                    刪除帳號
                 </h2>
 
                 <p className="mt-1 text-sm text-gray-600">
@@ -60,14 +60,14 @@ export default function DeleteUserForm({ className = '' }) {
                 </p>
             </header>
 
-            <DangerButton onClick={confirmUserDeletion}>
-                Delete Account
-            </DangerButton>
+            <div className="edit-button text-end mt-4">
+                <button className="btn" style={{ backgroundColor: "red" }} onClick={confirmUserDeletion}>刪除帳號</button>
+            </div>
 
             <Modal show={confirmingUserDeletion} onClose={closeModal}>
-                <form onSubmit={deleteUser} className="p-6">
+                <form onSubmit={deleteUser} className="p-4">
                     <h2 className="text-lg font-medium text-gray-900">
-                        Are you sure you want to delete your account?
+                        您確定要刪除帳號嗎?
                     </h2>
 
                     <p className="mt-1 text-sm text-gray-600">
@@ -77,34 +77,38 @@ export default function DeleteUserForm({ className = '' }) {
                         your account.
                     </p>
 
-                    <div className="mt-6">
-                        <InputLabel
-                            htmlFor="password"
-                            value="Password"
-                            className="sr-only"
-                        />
-
+                    <div className="form-floating mb-3 mt-3">
                         <TextInput
                             id="password"
                             type="password"
                             name="password"
                             ref={passwordInput}
                             value={data.password}
+                            placeholder="Password"
                             onChange={(e) =>
                                 setData('password', e.target.value)
                             }
-                            className="mt-1 block w-3/4"
+                            className="form-control"
                             isFocused
-                            placeholder="Password"
+                        />
+
+                        <InputLabel
+                            htmlFor="password"
+                            value="Password"
+                            className="sr-only"
                         />
 
                         <InputError
                             message={errors.password}
-                            className="mt-2"
+                            className="mt-2 errorMessage"
                         />
                     </div>
-
-                    <div className="mt-6 flex justify-end">
+                    <div className="text-end mt-4">
+                        <button className="btn" style={{ backgroundColor: "var(--main-darkblue)", color: "white" }} onClick={closeModal}>取消</button>
+                        &nbsp;
+                        <button className="btn" style={{ backgroundColor: "red", color: "white" }} onClick={confirmUserDeletion}>確認刪除</button>
+                    </div>
+                    {/* <div className="mt-6 flex justify-end">
                         <SecondaryButton onClick={closeModal}>
                             Cancel
                         </SecondaryButton>
@@ -112,7 +116,7 @@ export default function DeleteUserForm({ className = '' }) {
                         <DangerButton className="ms-3" disabled={processing}>
                             Delete Account
                         </DangerButton>
-                    </div>
+                    </div> */}
                 </form>
             </Modal>
         </section>

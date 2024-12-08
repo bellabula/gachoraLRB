@@ -1,8 +1,9 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 
 export default function Dashboard() {
 
+    const user = usePage().props.auth.user;
     $(document).ready(function () {
         $("#editProfile").click(() => {
             $("#profile").addClass("d-none")
@@ -45,7 +46,7 @@ export default function Dashboard() {
                 }
             })
         });
-    
+
         const filerBtnList = [[$("#memberStore .classFilterBtn"), $("#memberStore .classFilter")],
         [$("#memberWallet .classFilterBtn"), $("#memberWallet .classFilter")],
         [$($('#memberWallet .itemFilterBtn')[0]), $($('#memberWallet .itemFilter')[0])],
@@ -56,18 +57,18 @@ export default function Dashboard() {
                 element[1].css("visibility", "visible")
             })
         });
-    
-    
+
+
         const dateInput = document.getElementById('dateInput');
-    
+
         // 取得今天的日期，並格式化為 YYYY-MM-DD
         const today = new Date();
         const formattedDate = today.toISOString().split('T')[0];
-    
+
         // #memberWallet 
         $("#memberWallet .orderStartDate").prop("max", formattedDate)
         $("#memberWallet .orderEndDate").prop("max", formattedDate)
-    
+
         $("#memberWallet .orderStartDate").on("input", () => {
             $("#memberWallet .orderStartText").val($("#memberWallet .orderStartDate").val())
             $("#memberWallet .orderEndDate").prop("min", $("#memberWallet .orderStartDate").val())
@@ -76,11 +77,11 @@ export default function Dashboard() {
             $("#memberWallet .orderEndText").val($("#memberWallet .orderEndDate").val())
             $("#memberWallet .orderStartDate").prop("max", $("#memberWallet .orderEndDate").val())
         })
-    
+
         // #memberOrder
         $("#memberOrder .orderStartDate").prop("max", formattedDate)
         $("#memberOrder .orderEndDate").prop("max", formattedDate)
-    
+
         $("#memberOrder .orderStartDate").on("input", () => {
             $("#memberOrder .orderStartText").val($("#memberOrder .orderStartDate").val())
             $("#memberOrder .orderEndDate").prop("min", $("#memberOrder .orderStartDate").val())
@@ -89,7 +90,7 @@ export default function Dashboard() {
             $("#memberOrder .orderEndText").val($("#memberOrder .orderEndDate").val())
             $("#memberOrder .orderStartDate").prop("max", $("#memberOrder .orderEndDate").val())
         })
-    
+
         $("#editPwdBtn").click(() => {
             $("#pwdSection").css("display", "block")
             $("#editPwdBtn").css("display", "none")
@@ -105,8 +106,8 @@ export default function Dashboard() {
             <Head title="Member" />
             <main className="container container-xxl" id='member'>
                 <div className="row pt-5 pb-5 align-items-center">
-                    <div className="col-8"><img src="http://localhost/gachoraLRB/public/images/diamond.svg" alt="" width="50px" className="me-4" /><span className="h5">XXX會員
-                        您好!</span></div>
+                    <div className="col-8"><img src="http://localhost/gachoraLRB/public/images/diamond.svg" alt="" width="50px" className="me-4" />
+                        <span className="h4"><b>{user.name}</b> 您好!</span></div>
                     <div className="col-4">
                         <p className="h2 d-inline-block">G幣餘額</p><button className="rounded-5 float-end">儲值G幣</button>
                         <div className="h2 text-end mb-0">XXXXXXXXX</div>
@@ -566,20 +567,20 @@ export default function Dashboard() {
                                 {/* <!-- 姓名 --> */}
                                 <div className="mb-3">
                                     <label className="form-label">姓名*</label>
-                                    <input type="text" className="form-control-plaintext rounded-pill px-3" defaultValue="陳寶寶" readOnly />
+                                    <input type="text" className="form-control-plaintext rounded-pill px-3" defaultValue={user.name} readOnly />
                                 </div>
 
                                 {/* <!-- 電子郵件 --> */}
                                 <div className="mb-3">
                                     <label className="form-label">電子郵件*</label>
                                     <input type="mail" className="form-control-plaintext rounded-pill px-3"
-                                        defaultValue="baobaoChen@gmail.com" readOnly />
+                                        defaultValue={user.email} readOnly />
                                 </div>
 
                                 {/* <!-- 電話號碼 --> */}
                                 <div className="mb-3">
                                     <label className="form-label">電話號碼</label>
-                                    <input type="text" className="form-control-plaintext rounded-pill px-3" defaultValue="-" readOnly />
+                                    <input type="text" className="form-control-plaintext rounded-pill px-3" defaultValue={user.tel} readOnly />
                                 </div>
 
                                 {/* <!-- 生日 --> */}
@@ -608,9 +609,16 @@ export default function Dashboard() {
                                 </div>
 
                                 {/* <!-- 修改按鈕 --> */}
+
                                 <div className="edit-button text-end mt-4">
                                     <button type="button" className="btn rounded-pill" id="editProfile">修改基本資料</button>
                                 </div>
+
+                                <Link href={route('profile.edit')}>
+                                    <div className="edit-button text-end mt-4">
+                                        <button type="button" className="btn rounded-pill">修改基本資料LinkToPage</button>
+                                    </div>
+                                </Link>
                             </form>
                         </div>
                         {/* <!-- 修改表單資料 --> */}

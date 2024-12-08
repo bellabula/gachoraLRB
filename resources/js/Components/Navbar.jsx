@@ -33,7 +33,7 @@ export default function Navbar({ logo, bgcolor, navbgcolor, textColor, svgColor,
                         <li className="nav-item"><a className="dropdown-item" href="#"><img src="http://localhost/gachoraLRB/public/images/lang.svg" style={{ filter: svgColor }} /></a></li>
                         <li className="nav-item" style={{ display: logout }}>
                             <Link href={route('logout')} method="post" as="button" className="dropdown-item">
-                            <img src="http://localhost/gachoraLRB/public/images/logout.svg" style={{ filter: svgColor }} title='logout' />
+                                <img src="http://localhost/gachoraLRB/public/images/logout.svg" style={{ filter: svgColor }} title='logout' />
                             </Link>
                         </li>
                     </ul>
