@@ -20,6 +20,6 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
-        <script src="assets/jquery.js"></script>
+        <script src="http://localhost/gachoraLRB/public/assets/jquery.js"></script>
     </body>
 </html>

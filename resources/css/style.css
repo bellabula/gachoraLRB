@@ -18,3 +18,7 @@ body {
 .errorMessage {
     color: red;
 }
+
+.mainTextColor {
+    color: var(--main-darkblue)
+}
